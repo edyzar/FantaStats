@@ -84,7 +84,5 @@ data class GameSettings(
     @SerializedName("league_h2h_tiebreak_stats")
     var leagueH2hTiebreakStats: List<String>,
 
-    @SerializedName("timezone")
     var timezone: String,
-) {
-}
+)

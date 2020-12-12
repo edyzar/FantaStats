@@ -21,14 +21,16 @@ private val httpClient: OkHttpClient = OkHttpClient.Builder()
     .addInterceptor { chain: Interceptor.Chain ->
         val builder = chain.request().newBuilder()
             .addHeader("accept", "application/json; charset=utf-8")
-            .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+            .addHeader(
+                "User-Agent",
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+            )
         chain.proceed(builder.build())
     }
     .build()
 
 private val retrofit = Retrofit.Builder()
     .client(httpClient)
-    .baseUrl("https://fantasy.premierleague.com/")
     .addConverterFactory(GsonConverterFactory.create(gson))
     .build()
 

@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.launch
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import java.util.concurrent.TimeUnit
 
 class LoginActivity : AppCompatActivity() {
 
@@ -14,23 +17,19 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        fetchJson()
-
         loginButton.setOnClickListener {
-            startActivity(Intent(this, MenuActivity::class.java))
-        }
-    }
-
-    private fun fetchJson() {
-        lifecycleScope.launch {
-            val service = createPremierLeagueService()
-            try {
-                val result = service.bootstrapStatic()
-                println(result.totalPlayers)
-            } catch (th: Throwable) {
-                Log.e("LoginActivity", th.message, th)
+            prihlaseni();
+            if (true) {
+                startActivity(Intent(this, MenuActivity::class.java))
+            } else {
+                println("Neplatné přihlašovací údaje")
             }
         }
     }
+
+    private fun prihlaseni() {
+
+    }
+
 
 }
