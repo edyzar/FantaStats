@@ -17,7 +17,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        fetchJson()
+        getAllStatistics()
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navController = findNavController(R.id.fragment)
@@ -27,14 +27,14 @@ class MenuActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(navController)
     }
 
-    private fun fetchJson() {
+    private fun getAllStatistics() {
         lifecycleScope.launch {
-            val service = createPremierLeagueService()
+            val service = createStatsService()
             try {
                 val result = service.bootstrapStatic()
                 println(result.totalPlayers)
             } catch (th: Throwable) {
-                Log.e("LoginActivity", th.message, th)
+                Log.e("MenuActivity", th.message, th)
             }
         }
     }

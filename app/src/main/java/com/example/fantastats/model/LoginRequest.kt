@@ -2,9 +2,9 @@ package com.example.fantastats.model
 
 data class LoginRequest(
 
-    var login: String,
-
     var password: String,
+
+    var login: String,
 
     val redirectApi: String = "https://fantasy.premierleague.com/a/login",
 
