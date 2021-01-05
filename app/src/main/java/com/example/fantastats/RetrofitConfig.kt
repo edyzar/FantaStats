@@ -1,6 +1,8 @@
 package com.example.fantastats
 
-import com.example.fantastats.service.PremierLeagueService
+import com.example.fantastats.constant.ApiConstants
+import com.example.fantastats.service.LoginService
+import com.example.fantastats.service.StatsService
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -21,15 +23,42 @@ private val httpClient: OkHttpClient = OkHttpClient.Builder()
     .addInterceptor { chain: Interceptor.Chain ->
         val builder = chain.request().newBuilder()
             .addHeader("accept", "application/json; charset=utf-8")
-            .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+            .addHeader(
+                "User-Agent",
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+            )
+        chain.proceed(builder.build())
+    }
+    .build()
+
+private val httpClientLogin: OkHttpClient = OkHttpClient.Builder()
+    .callTimeout(5, TimeUnit.SECONDS)
+    .readTimeout(10, TimeUnit.SECONDS)
+    .connectTimeout(5, TimeUnit.SECONDS)
+    .followRedirects(false)
+    .addInterceptor { chain: Interceptor.Chain ->
+        val builder = chain.request().newBuilder()
+            .addHeader("accept", "application/json; charset=utf-8")
+            .addHeader(
+                "User-Agent",
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+            )
         chain.proceed(builder.build())
     }
     .build()
 
 private val retrofit = Retrofit.Builder()
     .client(httpClient)
-    .baseUrl("https://fantasy.premierleague.com/")
+    .baseUrl(ApiConstants.BASE_URL)
     .addConverterFactory(GsonConverterFactory.create(gson))
     .build()
 
-fun createPremierLeagueService(): PremierLeagueService = retrofit.create()
+private val retrofiLogin = Retrofit.Builder()
+    .client(httpClient)
+    .baseUrl(ApiConstants.BASE_LOGIN_URL)
+    .addConverterFactory(GsonConverterFactory.create(gson))
+    .build()
+
+fun createStatsService(): StatsService = retrofit.create()
+
+fun createLoginService(): LoginService = retrofiLogin.create()
