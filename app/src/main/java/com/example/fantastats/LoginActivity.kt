@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
             val me: Me? = prihlaseni()
             if (me != null) {
                 intent  = Intent(this, MenuActivity::class.java)
-                intent.putExtra("Id", me.player.id)
+                intent.putExtra("Id", me.player.entry)
                 startActivity(intent)
             } else {
                 println("Neplatné přihlašovací údaje")
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
                 val service = createStatsService()
                 try {
                     val me = service.me(cookie = "pl_profile=eyJzIjogIld6SXNNamt5TmpNMk9EWmQ6MWtyZnpqOmNnbzV1M2hUVmxsQjF3dEN4VjNYZlFQd211QSIsICJ1IjogeyJpZCI6IDI5MjYzNjg2LCAiZm4iOiAiRWR3YXJkIiwgImxuIjogIlphcmVja3kiLCAiZmMiOiAxNH19; sessionid=.eJyrVopPLC3JiC8tTi2Kz0xRslIysjQyMzazMFPSQZZKSkzOTs0DyRfkpBXk6IFk9AJ8QoFyxcHB_o5ALqqGjMTiDKBqS0MTy8S0VHNjI7OUlFTzFENjw1QzY1MLQ0uzZAPDVEMDCxOL1DRDS6VaAHxnK_U:1krfzj:jBhVfus_ZCwioNU_6t3dx5okYTU)")
-                    if (me.player != null) {
+                     if (me.player != null) {
                         user = me
                     }
                 } catch (th: Throwable) {

@@ -11,7 +11,7 @@ interface StatsService {
     suspend fun bootstrapStatic(): BootstrapStatic
 
     @GET(ApiConstants.MY_TEAM_URL + "{id}")
-    suspend fun myTeam(@Header("Cookie") cookie: String, @Path(value = "id") id: Int): MyTeam
+    suspend fun myTeam(@Header("Cookie") cookie: String, @Path("id") id: Int): MyTeam
 
     @GET(ApiConstants.ME_URL)
     suspend fun me(@Header("Cookie") cookie: String): Me
