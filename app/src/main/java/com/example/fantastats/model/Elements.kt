@@ -51,7 +51,7 @@ data class Elements(
     var newsAdded: String,
 
     @SerializedName("now_cost")
-    var photo: String,
+    var nowCost: String,
 
     @SerializedName("points_per_game")
     var pointsPerGame: String,
