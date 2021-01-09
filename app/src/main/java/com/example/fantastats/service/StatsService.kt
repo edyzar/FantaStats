@@ -16,4 +16,7 @@ interface StatsService {
     @GET(ApiConstants.ME_URL)
     suspend fun me(@Header("Cookie") cookie: String): Me
 
+    @GET(ApiConstants.ENTRY_URL + "{id}" + "/")
+    suspend fun basicInformation(@Path("id") id: Int): BasicInformation
+
 }

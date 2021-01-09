@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/teamTextView"
             android:layout_width="434dp"
             android:layout_height="wrap_content"
             android:layout_span="6"
