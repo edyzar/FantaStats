@@ -51,7 +51,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var fgChop: TextView? = view.findViewById(R.id.fgChop)
         fgChop?.text =
-            (if (this.myPlayers?.elements?.get(0)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(0)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(0)?.chanceOfPlayingNextRound.toString()
@@ -74,7 +74,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var sgChop: TextView? = view.findViewById(R.id.sgChop)
         sgChop?.text =
-            (if (this.myPlayers?.elements?.get(1)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(1)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(1)?.chanceOfPlayingNextRound.toString()
@@ -99,7 +99,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var fdChop: TextView? = view.findViewById(R.id.fdChop)
         fdChop?.text =
-            (if (this.myPlayers?.elements?.get(2)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(2)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(2)?.chanceOfPlayingNextRound.toString()
@@ -122,7 +122,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var sdChop: TextView? = view.findViewById(R.id.sdChop)
         sdChop?.text =
-            (if (this.myPlayers?.elements?.get(3)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(3)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(3)?.chanceOfPlayingNextRound.toString()
@@ -145,7 +145,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var tdChop: TextView? = view.findViewById(R.id.tdChop)
         tdChop?.text =
-            (if (this.myPlayers?.elements?.get(4)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(4)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(4)?.chanceOfPlayingNextRound.toString()
@@ -168,7 +168,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var fodChop: TextView? = view.findViewById(R.id.fodChop)
         fodChop?.text =
-            (if (this.myPlayers?.elements?.get(5)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(5)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(5)?.chanceOfPlayingNextRound.toString()
@@ -191,7 +191,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var fidChop: TextView? = view.findViewById(R.id.fidChop)
         fidChop?.text =
-            (if (this.myPlayers?.elements?.get(6)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(6)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(6)?.chanceOfPlayingNextRound.toString()
@@ -216,7 +216,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var fmChop: TextView? = view.findViewById(R.id.fmChop)
         fmChop?.text =
-            (if (this.myPlayers?.elements?.get(7)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(7)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(7)?.chanceOfPlayingNextRound.toString()
@@ -239,7 +239,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var smChop: TextView? = view.findViewById(R.id.smChop)
         smChop?.text =
-            (if (this.myPlayers?.elements?.get(8)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(8)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(8)?.chanceOfPlayingNextRound.toString()
@@ -262,7 +262,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var tmChop: TextView? = view.findViewById(R.id.tmChop)
         tmChop?.text =
-            (if (this.myPlayers?.elements?.get(9)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(9)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(9)?.chanceOfPlayingNextRound.toString()
@@ -285,7 +285,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var fomChop: TextView? = view.findViewById(R.id.fomChop)
         fomChop?.text =
-            (if (this.myPlayers?.elements?.get(10)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(10)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(10)?.chanceOfPlayingNextRound.toString()
@@ -308,7 +308,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var fimChop: TextView? = view.findViewById(R.id.fimChop)
         fimChop?.text =
-            (if (this.myPlayers?.elements?.get(11)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(11)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(11)?.chanceOfPlayingNextRound.toString()
@@ -333,7 +333,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var ffChop: TextView? = view.findViewById(R.id.ffChop)
         ffChop?.text =
-            (if (this.myPlayers?.elements?.get(12)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(12)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(12)?.chanceOfPlayingNextRound.toString()
@@ -356,7 +356,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var sfChop: TextView? = view.findViewById(R.id.sfChop)
         sfChop?.text =
-            (if (this.myPlayers?.elements?.get(13)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(13)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(13)?.chanceOfPlayingNextRound.toString()
@@ -379,7 +379,7 @@ class MyTeamFragment : Fragment(R.layout.fragment_my_team) {
 
         var tfChop: TextView? = view.findViewById(R.id.tfChop)
         tfChop?.text =
-            (if (this.myPlayers?.elements?.get(14)?.chanceOfPlayingNextRound == 0) {
+            (if (this.myPlayers?.elements?.get(14)?.chanceOfPlayingNextRound == null) {
                 "100"
             } else {
                 this.myPlayers?.elements?.get(14)?.chanceOfPlayingNextRound.toString()

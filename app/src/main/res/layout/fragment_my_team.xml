@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tableLayout"
+    android:id="@+id/tableLayoutSettings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="65sp"
@@ -160,7 +160,7 @@
     <TableRow
         android:id="@+id/patyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/sgName"
@@ -202,7 +202,7 @@
     <TableRow
         android:id="@+id/sestyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView33"
@@ -220,7 +220,7 @@
     <TableRow
         android:id="@+id/sedmyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/fdName"
@@ -346,7 +346,7 @@
     <TableRow
         android:id="@+id/desatyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/fodName"
@@ -388,7 +388,7 @@
     <TableRow
         android:id="@+id/jedenactyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/fidName"
@@ -448,7 +448,7 @@
     <TableRow
         android:id="@+id/trinactyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/fmName"
@@ -490,7 +490,7 @@
     <TableRow
         android:id="@+id/ctrnactyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/smName"
@@ -532,7 +532,7 @@
     <TableRow
         android:id="@+id/patnactyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tmName"
@@ -574,7 +574,7 @@
     <TableRow
         android:id="@+id/sestnactyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/fomName"
@@ -617,7 +617,7 @@
     <TableRow
         android:id="@+id/sedmnactyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/fimName"
@@ -659,7 +659,7 @@
     <TableRow
         android:id="@+id/osmnactyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView96"
@@ -677,7 +677,7 @@
     <TableRow
         android:id="@+id/devatenactyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/ffName"
@@ -719,7 +719,7 @@
     <TableRow
         android:id="@+id/dvacatyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/sfName"
@@ -761,7 +761,7 @@
     <TableRow
         android:id="@+id/jednadvacatyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tfName"

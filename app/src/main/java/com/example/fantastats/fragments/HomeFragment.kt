@@ -47,56 +47,56 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
 
             when (i) {
-                1 -> {
+                0 -> {
                     var leagueName1: TextView? = view.findViewById(R.id.leagueName1)
                     leagueName1?.text = this.basicInformation?.leagues?.classic?.get(i)?.name
                     var leagueRank1: TextView? = view.findViewById(R.id.leagueRank1)
                     leagueRank1?.text =
                         this.basicInformation?.leagues?.classic?.get(i)?.entryRank.toString()
                 }
-                2 -> {
+                1 -> {
                     var leagueName2: TextView? = view.findViewById(R.id.leagueName2)
                     leagueName2?.text = this.basicInformation?.leagues?.classic?.get(i)?.name
                     var leagueRank2: TextView? = view.findViewById(R.id.leagueRank2)
                     leagueRank2?.text =
                         this.basicInformation?.leagues?.classic?.get(i)?.entryRank.toString()
                 }
-                3 -> {
+                2 -> {
                     var leagueName3: TextView? = view.findViewById(R.id.leagueName3)
                     leagueName3?.text = this.basicInformation?.leagues?.classic?.get(i)?.name
                     var leagueRank3: TextView? = view.findViewById(R.id.leagueRank3)
                     leagueRank3?.text =
                         this.basicInformation?.leagues?.classic?.get(i)?.entryRank.toString()
                 }
-                4 -> {
+                3 -> {
                     var leagueName4: TextView? = view.findViewById(R.id.leagueName4)
                     leagueName4?.text = this.basicInformation?.leagues?.classic?.get(i)?.name
                     var leagueRank4: TextView? = view.findViewById(R.id.leagueRank4)
                     leagueRank4?.text =
                         this.basicInformation?.leagues?.classic?.get(i)?.entryRank.toString()
                 }
-                5 -> {
+                4 -> {
                     var leagueName5: TextView? = view.findViewById(R.id.leagueName5)
                     leagueName5?.text = this.basicInformation?.leagues?.classic?.get(i)?.name
                     var leagueRank5: TextView? = view.findViewById(R.id.leagueRank5)
                     leagueRank5?.text =
                         this.basicInformation?.leagues?.classic?.get(i)?.entryRank.toString()
                 }
-                6 -> {
+                5 -> {
                     var leagueName6: TextView? = view.findViewById(R.id.leagueName6)
                     leagueName6?.text = this.basicInformation?.leagues?.classic?.get(i)?.name
                     var leagueRank6: TextView? = view.findViewById(R.id.leagueRank6)
                     leagueRank6?.text =
                         this.basicInformation?.leagues?.classic?.get(i)?.entryRank.toString()
                 }
-                7 -> {
+                6 -> {
                     var leagueName7: TextView? = view.findViewById(R.id.leagueName7)
                     leagueName7?.text = this.basicInformation?.leagues?.classic?.get(i)?.name
                     var leagueRank7: TextView? = view.findViewById(R.id.leagueRank7)
                     leagueRank7?.text =
                         this.basicInformation?.leagues?.classic?.get(i)?.entryRank.toString()
                 }
-                8 -> {
+                7 -> {
                     var leagueName8: TextView? = view.findViewById(R.id.leagueName8)
                     leagueName8?.text = this.basicInformation?.leagues?.classic?.get(i)?.name
                     var leagueRank8: TextView? = view.findViewById(R.id.leagueRank8)
