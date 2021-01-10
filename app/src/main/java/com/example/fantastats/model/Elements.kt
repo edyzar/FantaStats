@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Elements(
     @SerializedName("chance_of_playing_next_round")
-    var chanceOfPlayingNextRound: Int,
+    var chanceOfPlayingNextRound: Int?,
 
     @SerializedName("chance_of_playing_this_round")
     var chanceOfPlayingThisRound: Int,
@@ -54,7 +54,7 @@ data class Elements(
     var nowCost: String,
 
     @SerializedName("points_per_game")
-    var pointsPerGame: String,
+    var pointsPerGame: Double,
 
     @SerializedName("second_name")
     var secondName: String,

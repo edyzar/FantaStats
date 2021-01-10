@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tableLayout"
+    android:id="@+id/tableLayoutSettings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="65sp"
@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_span="2"
+            android:padding="0.5sp"
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -29,25 +30,15 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_span="2"/>
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Transfers and Finance"
             android:layout_span="2"
+            android:padding="0.5sp"
+            android:text="Transfers and Finance"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -56,12 +47,13 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Squad Value"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -70,17 +62,19 @@
             android:id="@+id/squadValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="In the bank"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -89,17 +83,19 @@
             android:id="@+id/inTheBank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Gameweek Transfer"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -108,17 +104,19 @@
             android:id="@+id/gameweekTransfer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Free Transfers"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -127,18 +125,20 @@
             android:id="@+id/freeTransfers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_span="2"
+            android:padding="0.5sp"
             android:text="Points/Rankings"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -148,12 +148,13 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Gameweek Points"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -162,17 +163,19 @@
             android:id="@+id/summaryEventPoints"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Overall Points"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -181,17 +184,19 @@
             android:id="@+id/summaryOverallPoints"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Overall Rank"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -205,13 +210,14 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_span="2"
+            android:padding="0.5sp"
             android:text="Chips"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -221,12 +227,13 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Bench Boost"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -235,17 +242,19 @@
             android:id="@+id/benchBoost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Triple Captain"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -254,17 +263,19 @@
             android:id="@+id/tripleCaptain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Free Hit"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -273,17 +284,19 @@
             android:id="@+id/freeHit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="TextView" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView35"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Wildcard"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -298,29 +311,31 @@
     <TableRow
         android:id="@+id/druhyRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:padding="0.5sp"
             android:text="Leagues"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_span="2"/>
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tretiRadek"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="League"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -329,6 +344,7 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0.5sp"
             android:text="Current Rank"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -337,121 +353,137 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/leagueName1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
 
         <TextView
             android:id="@+id/leagueRank1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/leagueName2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
 
         <TextView
             android:id="@+id/leagueRank2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/leagueName3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
 
         <TextView
             android:id="@+id/leagueRank3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/leagueName4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
 
         <TextView
             android:id="@+id/leagueRank4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/leagueName5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
 
         <TextView
             android:id="@+id/leagueRank5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/leagueName6"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
 
         <TextView
             android:id="@+id/leagueRank6"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/leagueName7"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
 
         <TextView
             android:id="@+id/leagueRank7"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/leagueName8"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
 
         <TextView
             android:id="@+id/leagueRank8"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="0.5sp" />
     </TableRow>
 </TableLayout>
