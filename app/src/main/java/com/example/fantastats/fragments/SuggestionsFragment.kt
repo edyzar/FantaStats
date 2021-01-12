@@ -29,7 +29,7 @@ class SuggestionsFragment : Fragment(R.layout.fragment_suggestions) {
     }
 
     private fun fillTable(view: View) {
-        chceckInjuryPlayers()
+        checkInjuryPlayers()
 
         if (injuries.size == 0) {
             return
@@ -316,7 +316,7 @@ class SuggestionsFragment : Fragment(R.layout.fragment_suggestions) {
         }
     }
 
-    private fun chceckInjuryPlayers() {
+    private fun checkInjuryPlayers() {
         myPlayers?.elements?.forEach { player ->
             if (player.chanceOfPlayingNextRound == 0 || player.chanceOfPlayingNextRound == 25 || player.chanceOfPlayingNextRound == 50 || player.chanceOfPlayingNextRound == 75) {
                 myTeam?.picks?.forEach {

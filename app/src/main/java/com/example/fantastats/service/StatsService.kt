@@ -1,9 +1,13 @@
 package com.example.fantastats.service
 
 import com.example.fantastats.constant.ApiConstants
-import com.example.fantastats.model.*
-import retrofit2.Call
-import retrofit2.http.*
+import com.example.fantastats.model.BasicInformation
+import com.example.fantastats.model.BootstrapStatic
+import com.example.fantastats.model.Me
+import com.example.fantastats.model.MyTeam
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Path
 
 interface StatsService {
 

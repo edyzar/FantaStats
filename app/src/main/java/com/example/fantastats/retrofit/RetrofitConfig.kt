@@ -1,7 +1,6 @@
 package com.example.fantastats
 
 import com.example.fantastats.constant.ApiConstants
-import com.example.fantastats.service.LoginService
 import com.example.fantastats.service.StatsService
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor

@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.fantastats.R
 import com.example.fantastats.model.BasicInformation
-import com.example.fantastats.model.MyPlayers
 import com.example.fantastats.model.MyTeam
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
