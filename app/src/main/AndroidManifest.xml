@@ -11,15 +11,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ThemeActivity">
+        <activity android:name=".activity.ThemeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.MenuActivity" />
+
+        <receiver android:name=".notification.Reminder"/>
     </application>
 
 </manifest>
