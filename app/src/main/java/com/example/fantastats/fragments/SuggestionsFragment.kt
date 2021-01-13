@@ -327,7 +327,6 @@ class SuggestionsFragment : Fragment(R.layout.fragment_suggestions) {
                 }
             }
         }
-        println(injuries)
     }
 
     fun Int?.isGreaterThan(other: Int?) =
