@@ -1,10 +1,7 @@
 package com.example.fantastats.service
 
 import com.example.fantastats.constant.ApiConstants
-import com.example.fantastats.model.BasicInformation
-import com.example.fantastats.model.BootstrapStatic
-import com.example.fantastats.model.Me
-import com.example.fantastats.model.MyTeam
+import com.example.fantastats.model.*
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
@@ -22,5 +19,8 @@ interface StatsService {
 
     @GET(ApiConstants.ENTRY_URL + "{id}" + "/")
     suspend fun basicInformation(@Path("id") id: Int): BasicInformation
+
+    @GET(ApiConstants.ENTRY_URL + "{id}" + "/" + ApiConstants.HISTORY_URL)
+    suspend fun history(@Path("id") id: Int): History
 
 }

@@ -21,7 +21,10 @@
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.MenuActivity" />
 
-        <receiver android:name=".notification.Reminder"/>
+        <receiver android:name=".notification.ThirtyMinutes"/>
+        <receiver android:name=".notification.OneHour"/>
+        <receiver android:name=".notification.TwoHours"/>
+        <receiver android:name=".notification.TenMinutes"/>
     </application>
 
 </manifest>

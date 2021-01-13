@@ -39,7 +39,6 @@ class LoginActivity : AppCompatActivity() {
                 val service = createStatsService()
                 try {
                     val me =
-                        //service.me(cookie = "pl_profile=eyJzIjogIld6SXNOVGcwTXpZM01EVmQ6MWt5ZUJoOndBR1VsRXhSeEE3RUpuUXBFMlUtZ3Rqa21xUSIsICJ1IjogeyJpZCI6IDU4NDM2NzA1LCAiZm4iOiAic2Rmc2Rmc2YiLCAibG4iOiAiYXNkZnNkZnNkZiIsICJmYyI6IDE0fX0=; sessionid=.eJyrVopPLC3JiC8tTi2Kz0xRslIytTAxNjM3MFXSQZZKSkzOTs0DyRfkpBXk6IFk9AJ8QoFyxcHB_o5ALqqGjMTiDKDqVFNDUwvL1KREs0SLJKNUQxMD81QTQxOzVMu0FMu0NEvDVLMUQ6MkC6VaAIbKLLU:1kyeBi:nhXdevRL1S5hRTBQUj5WeVbTG3Q")
                         service.me(cookie = "pl_profile=" + plProfile.text + ";sessionid=" + sessionId.text)
                     if (me.player != null) {
                         user = me
