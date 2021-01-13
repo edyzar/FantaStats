@@ -80,11 +80,14 @@ class MenuActivity : AppCompatActivity() {
 
         checkInjuryPlayers()
         scheduleNotification()
-
     }
 
     private fun sendNotifications() {
-
+        sendTenMinutesNotification()
+        sendThirtyMinutesNotification()
+        sendOneHourNotification()
+        sendTwoHoursNotification()
+        sendDayNotification()
     }
 
     private fun findNextDeadline() {
@@ -240,7 +243,7 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-    private fun sendOneyHourNotification() {
+    private fun sendOneHourNotification() {
         var intentt = Intent(this, OneHour::class.java)
         var pendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, intentt, 0)
         var alarmManager: AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
