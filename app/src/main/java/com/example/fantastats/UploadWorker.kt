@@ -33,7 +33,7 @@ class UploadWorker(appContext: Context, workerParams: WorkerParameters): Worker(
 
         val notification = NotificationCompat.Builder(applicationContext, NOTIFICATION_CHANNEL)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle("Injury player").setContentText("One of your player is injured. Look at the recommended transfers.")
+            .setContentTitle("Injury player").setContentText("Look at the recommended transfers.")
 
         notification.priority = PRIORITY_MAX
 

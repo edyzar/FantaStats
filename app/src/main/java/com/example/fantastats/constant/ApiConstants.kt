@@ -8,4 +8,5 @@ object ApiConstants {
     const val MY_TEAM_URL = "my-team/"
     const val ME_URL = "me/"
     const val ENTRY_URL = "entry/"
+    const val HISTORY_URL = "history/"
 }

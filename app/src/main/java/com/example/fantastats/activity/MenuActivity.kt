@@ -8,7 +8,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -21,11 +20,13 @@ import com.example.fantastats.fragments.MyTeamFragment
 import com.example.fantastats.fragments.SettingsFragment
 import com.example.fantastats.fragments.SuggestionsFragment
 import com.example.fantastats.model.*
-import com.example.fantastats.notification.Reminder
+import com.example.fantastats.notification.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class MenuActivity : AppCompatActivity() {
@@ -34,16 +35,24 @@ class MenuActivity : AppCompatActivity() {
     private var myPlayers: MyPlayers = MyPlayers(elements = null)
     private var bootstrapStatic: BootstrapStatic? = null
     private var basicInformation: BasicInformation? = null
+    private var history: History? = null
     private var isInjured = false
+    private var milisecondsThirtyMinutes: Long? = null
+    private var milisecondsOneHour: Long? = null
+    private var milisecondsTwoHours: Long? = null
+    private var milisecondsTenMinutes: Long? = null
+    private var milisecondsDay: Long? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        createNotificationChannel()
-        runNotification()
+        createNotificationChannels()
 
         myTeam = loadMujTym()
+
+        findNextDeadline()
+        sendNotifications()
 
         myPlayers.elements =
             findMyTeam(bootstrapStatic?.elements!!, myTeam)?.sortedBy { it.elementType }
@@ -74,10 +83,115 @@ class MenuActivity : AppCompatActivity() {
 
     }
 
+    private fun sendNotifications() {
+
+    }
+
+    private fun findNextDeadline() {
+        var deadlines: MutableList<Deadline>? = mutableListOf()
+
+        bootstrapStatic?.events?.forEach { event ->
+            val array: List<String> = event.deadline_time.split("T")
+
+            val arrayDays: List<String> = array[0].split("-")
+
+            val arrayHours: List<String> = array[1].split("Z")
+
+            val arrayTime: List<String> = arrayHours[0].split(":")
+
+            var deadline: Deadline? = Deadline(
+                year = arrayDays[0], month = arrayDays[1], days = arrayDays[2],
+                hours = arrayTime[0], minutes = arrayTime[1], seconds = arrayTime[2]
+            )
+
+            if (deadline != null) {
+                deadlines?.add(deadline)
+
+            }
+        }
+
+        var lastGameweek = history?.current?.last()?.event?.plus(1)
+        var nextDeadline = Deadline("", "", "", "", "", "")
+        bootstrapStatic?.events?.forEach { events ->
+            if (events.id == lastGameweek) {
+                val array: List<String> = events.deadline_time.split("T")
+
+                val arrayDays: List<String> = array[0].split("-")
+
+                val arrayHours: List<String> = array[1].split("Z")
+
+                val arrayTime: List<String> = arrayHours[0].split(":")
+
+                nextDeadline = Deadline(
+                    year = arrayDays[0],
+                    month = arrayDays[1],
+                    days = arrayDays[2],
+                    hours = arrayTime[0].toInt().plus(1).toString(),
+                    minutes = arrayTime[1],
+                    seconds = arrayTime[2]
+                )
+            }
+        }
+
+        milisecondsTenMinutes = toMiliseconds(
+            nextDeadline.year + "-" + nextDeadline.month + "-" + nextDeadline.days + "-" + nextDeadline.hours + ":" + nextDeadline.minutes + ":" + nextDeadline.seconds,
+            "ten"
+        )
+        milisecondsThirtyMinutes = toMiliseconds(
+            nextDeadline.year + "-" + nextDeadline.month + "-" + nextDeadline.days + "-" + nextDeadline.hours + ":" + nextDeadline.minutes + ":" + nextDeadline.seconds,
+            "thirty"
+        )
+        milisecondsOneHour = toMiliseconds(
+            nextDeadline.year + "-" + nextDeadline.month + "-" + nextDeadline.days + "-" + nextDeadline.hours + ":" + nextDeadline.minutes + ":" + nextDeadline.seconds,
+            "one"
+        )
+        milisecondsTwoHours = toMiliseconds(
+            nextDeadline.year + "-" + nextDeadline.month + "-" + nextDeadline.days + "-" + nextDeadline.hours + ":" + nextDeadline.minutes + ":" + nextDeadline.seconds,
+            "two"
+        )
+        milisecondsDay = toMiliseconds(
+            nextDeadline.year + "-" + nextDeadline.month + "-" + nextDeadline.days + "-" + nextDeadline.hours + ":" + nextDeadline.minutes + ":" + nextDeadline.seconds,
+            "day"
+        )
+
+    }
+
+    private fun toMiliseconds(date: String, type: String): Long {
+        val sdf = SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
+        val mDate: Date = sdf?.parse(date);
+        var timeInMilliseconds = 0L;
+        when (type) {
+            "ten" -> {
+                timeInMilliseconds = mDate.time.minus(600 * 1000)
+            }
+            "thirty" -> {
+                timeInMilliseconds = mDate.time.minus(1800 * 1000)
+            }
+            "one" -> {
+                timeInMilliseconds = mDate.time.minus(3600 * 1000)
+            }
+            "two" -> {
+                timeInMilliseconds = mDate.time.minus(7200 * 1000)
+            }
+            "day" -> {
+                timeInMilliseconds = mDate.time.minus(86400 * 1000)
+            }
+        }
+
+        return timeInMilliseconds
+
+    }
+
     private fun scheduleNotification() {
         val data = Data.Builder()
 
-        data.putString("isInjured", (if (isInjured) {"true"} else {"false"}))
+        data.putString(
+            "isInjured", (if (isInjured) {
+                "true"
+            } else {
+                "false"
+            })
+        )
 
         val constraint = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -85,7 +199,7 @@ class MenuActivity : AppCompatActivity() {
 
         val uploadWorkRequest = PeriodicWorkRequest.Builder(
             UploadWorker::class.java,
-            15, TimeUnit.MINUTES
+            1, TimeUnit.HOURS
         )
             .setConstraints(constraint)
             .addTag("my_unique_worker")
@@ -93,39 +207,131 @@ class MenuActivity : AppCompatActivity() {
             .build()
         WorkManager
             .getInstance(this)
-            .enqueueUniquePeriodicWork("my_unique_worker", ExistingPeriodicWorkPolicy.REPLACE,
-                uploadWorkRequest)
-        
+            .enqueueUniquePeriodicWork(
+                "my_unique_worker", ExistingPeriodicWorkPolicy.REPLACE,
+                uploadWorkRequest
+            )
+
     }
 
-    private fun runNotification() {
-        if (isInjured) {
-            Toast.makeText(this, "Reminder Set!", Toast.LENGTH_SHORT).show()
+    private fun sendTenMinutesNotification() {
+        var intentt = Intent(this, TenMinutes::class.java)
+        var pendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, intentt, 0)
+        var alarmManager: AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        milisecondsTenMinutes?.let {
+            alarmManager.set(
+                AlarmManager.RTC_WAKEUP,
+                it,
+                pendingIntent
+            )
+        }
+    }
 
-            var intentt = Intent(this, Reminder::class.java)
-            var pendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, intentt, 0)
+    private fun sendThirtyMinutesNotification() {
+        var intentt = Intent(this, ThirtyMinutes::class.java)
+        var pendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, intentt, 0)
+        var alarmManager: AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        milisecondsThirtyMinutes?.let {
+            alarmManager.set(
+                AlarmManager.RTC_WAKEUP,
+                it,
+                pendingIntent
+            )
+        }
+    }
 
-            var alarmManager: AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+    private fun sendOneyHourNotification() {
+        var intentt = Intent(this, OneHour::class.java)
+        var pendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, intentt, 0)
+        var alarmManager: AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        milisecondsOneHour?.let {
+            alarmManager.set(
+                AlarmManager.RTC_WAKEUP,
+                it,
+                pendingIntent
+            )
+        }
+    }
 
-            val time = System.currentTimeMillis()
+    private fun sendTwoHoursNotification() {
+        var intentt = Intent(this, TwoHours::class.java)
+        var pendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, intentt, 0)
+        var alarmManager: AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        milisecondsTwoHours?.let {
+            alarmManager.set(
+                AlarmManager.RTC_WAKEUP,
+                it,
+                pendingIntent
+            )
+        }
+    }
 
-            val tenSecond = 1000 * 10
-
-            alarmManager.set(AlarmManager.RTC_WAKEUP, time + tenSecond, pendingIntent)
+    private fun sendDayNotification() {
+        var intentt = Intent(this, OneDay::class.java)
+        var pendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, intentt, 0)
+        var alarmManager: AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        milisecondsTwoHours?.let {
+            alarmManager.set(
+                AlarmManager.RTC_WAKEUP,
+                it,
+                pendingIntent
+            )
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun createNotificationChannel() {
+    private fun createNotificationChannels() {
         if (Build.VERSION.SDK_INT.isGreaterThan(Build.VERSION_CODES.O)) {
-            val name = "NotificationTest"
-            val description = "Channel for Notification Test"
+            val name = "tenMinutes"
+            val description = "Channel for Notification Test ten minutes"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel("notificationOne", name, importance)
+            val channel = NotificationChannel("tenMinutes", name, importance)
             channel.description = description
 
-            var notificationManager: NotificationManager = getSystemService(NotificationManager::class.java)
-            notificationManager.createNotificationChannel(channel)
+            var notificationManagerFourHours: NotificationManager =
+                getSystemService(NotificationManager::class.java)
+            notificationManagerFourHours.createNotificationChannel(channel)
+
+            val nameThirtyMinutes = "thirtyMinutes"
+            val descriptionThirtyMinutes = "Channel for Notification Test thirty minutes"
+            val importanceThirtyMinutes = NotificationManager.IMPORTANCE_DEFAULT
+            val channelThirtyMinutes =
+                NotificationChannel("thirtyMinutes", nameThirtyMinutes, importanceThirtyMinutes)
+            channelThirtyMinutes.description = descriptionThirtyMinutes
+
+            var notificationManagerThirtyMinutes: NotificationManager =
+                getSystemService(NotificationManager::class.java)
+            notificationManagerThirtyMinutes.createNotificationChannel(channelThirtyMinutes)
+
+            val nameOneHour = "oneHours"
+            val descriptionOneHour = "Channel for Notification Test one hour"
+            val importanceOneHour = NotificationManager.IMPORTANCE_DEFAULT
+            val channelOneHour = NotificationChannel("oneHours", nameOneHour, importanceOneHour)
+            channelOneHour.description = descriptionOneHour
+
+            var notificationManagerOneHour: NotificationManager =
+                getSystemService(NotificationManager::class.java)
+            notificationManagerOneHour.createNotificationChannel(channelOneHour)
+
+            val nameTwoHours = "twoHours"
+            val descriptionTwoHours = "Channel for Notification Test Two hours"
+            val importanceTwoHours = NotificationManager.IMPORTANCE_DEFAULT
+            val channelTwoHours = NotificationChannel("twoHours", nameTwoHours, importanceTwoHours)
+            channelTwoHours.description = descriptionTwoHours
+
+            var notificationManagerTwoHours: NotificationManager =
+                getSystemService(NotificationManager::class.java)
+            notificationManagerTwoHours.createNotificationChannel(channelTwoHours)
+
+            val nameDay = "oneDay"
+            val descriptionDay = "Channel for Notification Test one day"
+            val importanceDay = NotificationManager.IMPORTANCE_DEFAULT
+            val channelDay = NotificationChannel("oneDay", nameDay, importanceDay)
+            channel.description = descriptionDay
+
+            var notificationManagerFourHoursDay: NotificationManager =
+                getSystemService(NotificationManager::class.java)
+            notificationManagerFourHoursDay.createNotificationChannel(channelDay)
         }
     }
 
@@ -201,19 +407,12 @@ class MenuActivity : AppCompatActivity() {
                     Log.e("MenuActivity", "Neplatné id týmu")
                 } else {
                     try {
-                        /* myTeam = service.myTeam(
-                             cookie = "pl_profile=eyJzIjogIld6SXNNamt5TmpNMk9EWmQ6MWtyZnpqOmNnbzV1M2hUVmxsQjF3dEN4VjNYZlFQd211QSIsICJ1IjogeyJpZCI6IDI5MjYzNjg2LCAiZm4iOiAiRWR3YXJkIiwgImxuIjogIlphcmVja3kiLCAiZmMiOiAxNH19; sessionid=.eJyrVopPLC3JiC8tTi2Kz0xRslIysjQyMzazMFPSQZZKSkzOTs0DyRfkpBXk6IFk9AJ8QoFyxcHB_o5ALqqGjMTiDKBqS0MTy8S0VHNjI7OUlFTzFENjw1QzY1MLQ0uzZAPDVEMDCxOL1DRDS6VaAHxnK_U:1krfzj:jBhVfus_ZCwioNU_6t3dx5okYTU)",
-                             id = id
-                         )*/
-                        /*myTeam = service.myTeam(
-                            cookie = "pl_profile=eyJzIjogIld6SXNOVGcwTXpZM01EVmQ6MWt5ZUJoOndBR1VsRXhSeEE3RUpuUXBFMlUtZ3Rqa21xUSIsICJ1IjogeyJpZCI6IDU4NDM2NzA1LCAiZm4iOiAic2Rmc2Rmc2YiLCAibG4iOiAiYXNkZnNkZnNkZiIsICJmYyI6IDE0fX0=; sessionid=.eJyrVopPLC3JiC8tTi2Kz0xRslIytTAxNjM3MFXSQZZKSkzOTs0DyRfkpBXk6IFk9AJ8QoFyxcHB_o5ALqqGjMTiDKDqVFNDUwvL1KREs0SLJKNUQxMD81QTQxOzVMu0FMu0NEvDVLMUQ6MkC6VaAIbKLLU:1kyeBi:nhXdevRL1S5hRTBQUj5WeVbTG3Q",
-                            id = id
-                        )*/
                         myTeam = service.myTeam(
-                            cookie = "pl_profile=" + plProfile + ";sessionid=" + sessionId, id = id
+                            cookie = "pl_profile=$plProfile;sessionid=$sessionId", id = id
                         )
                         basicInformation = service.basicInformation(id = id)
                         bootstrapStatic = service.bootstrapStatic()
+                        history = service.history(id = id)
                     } catch (th: Throwable) {
                         Log.e("MenuActivity", th.message, th)
                     }
